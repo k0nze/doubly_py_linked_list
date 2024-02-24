@@ -1,5 +1,6 @@
 __version__ = "1.0.0"
 
+
 class DoublyLinkedListNode:
     def __init__(self, value):
         self.value = value
@@ -10,7 +11,7 @@ class DoublyLinkedListNode:
         return str(self.value)
 
     def __str__(self):
-        return self.__repr__() 
+        return self.__repr__()
 
 
 class DoublyLinkedList:
@@ -39,7 +40,7 @@ class DoublyLinkedList:
         else:
             new_node.prev = self.tail
             self.tail.next = new_node
-            self.tail = new_node 
+            self.tail = new_node
         self.length += 1
         return new_node
 
@@ -64,6 +65,8 @@ class DoublyLinkedList:
         node.prev = None
         node.next = None
 
+    def __len__(self):
+        return self.length
 
     def __iter__(self):
         self.current_iter_node = self.head
@@ -77,8 +80,8 @@ class DoublyLinkedList:
         raise StopIteration
 
     def __repr__(self):
-        node_values = [] 
-        
+        node_values = []
+
         if self.head is None:
             return "empty DoublyLinkedList"
 
@@ -92,4 +95,3 @@ class DoublyLinkedList:
         print(node_values)
 
         return " <-> ".join(node_values)
-
