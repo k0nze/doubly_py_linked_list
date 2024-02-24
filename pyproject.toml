@@ -1,0 +1,39 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doubly_py_linked_list"
+version = "0.1.1"
+description = "Doubly linked list implementation in Python"
+readme = "README.md"
+authors = [{ name = "Konstantin (k0nze) Lübeck", email = "admin@konze.org" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["data structures"]
+dependencies = []
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = ["pre-commit", "bumpver"]
+
+[project.urls]
+Homepage = "https://github.com/k0nze/doubly_py_linked_list"
+
+[tool.bumpver]
+current_version = "1.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"',]
+"src/doubly_py_linked_list/__init__.py" = ["{version}"]
