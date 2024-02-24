@@ -10,7 +10,6 @@ class TestDoublyLinkedList(unittest.TestCase):
         self.assertEqual(len(d), 0)
 
         d.add_node_in_front_of_head(1)
-
         self.assertEqual(len(d), 1)
         self.assertEqual(d.head.value, 1)
         self.assertEqual(d.tail.value, 1)
@@ -24,3 +23,22 @@ class TestDoublyLinkedList(unittest.TestCase):
         self.assertEqual(len(d), 3)
         self.assertEqual(d.head.value, 3)
         self.assertEqual(d.tail.value, 1)
+
+    def test_add_behind_tail(self):
+        d = dll()
+        self.assertEqual(len(d), 0)
+
+        d.add_node_behind_tail(1)
+        self.assertEqual(len(d), 1)
+        self.assertEqual(d.head.value, 1)
+        self.assertEqual(d.tail.value, 1)
+
+        d.add_node_behind_tail(2)
+        self.assertEqual(len(d), 2)
+        self.assertEqual(d.head.value, 1)
+        self.assertEqual(d.tail.value, 2)
+
+        d.add_node_behind_tail(3)
+        self.assertEqual(len(d), 3)
+        self.assertEqual(d.head.value, 1)
+        self.assertEqual(d.tail.value, 3)
