@@ -42,3 +42,39 @@ class TestDoublyLinkedList(unittest.TestCase):
         self.assertEqual(len(d), 3)
         self.assertEqual(d.head.value, 1)
         self.assertEqual(d.tail.value, 3)
+
+    def test_remove_node(self):
+        d = dll()
+        self.assertEqual(len(d), 0)
+
+        node_1 = d.add_node_behind_tail(1)
+        node_2 = d.add_node_behind_tail(2)
+        node_3 = d.add_node_behind_tail(3)
+        d.add_node_behind_tail(4)
+        d.add_node_behind_tail(5)
+        node_6 = d.add_node_behind_tail(6)
+        node_7 = d.add_node_behind_tail(7)
+        self.assertEqual(len(d), 7)
+
+        l = list(d)
+        self.assertListEqual(l, [1, 2, 3, 4, 5, 6, 7])
+
+        d.remove_node(node_3)
+        self.assertEqual(len(d), 6)
+
+        l = list(d)
+        self.assertListEqual(l, [1, 2, 4, 5, 6, 7])
+
+        d.remove_node(node_1)
+        self.assertEqual(len(d), 5)
+        self.assertEqual(d.head, node_2)
+
+        l = list(d)
+        self.assertListEqual(l, [2, 4, 5, 6, 7])
+
+        d.remove_node(node_7)
+        self.assertEqual(len(d), 4)
+        self.assertEqual(d.tail, node_6)
+
+        l = list(d)
+        self.assertListEqual(l, [2, 4, 5, 6])

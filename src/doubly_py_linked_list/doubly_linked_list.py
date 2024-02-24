@@ -62,8 +62,7 @@ class DoublyLinkedList:
             next_node.prev = prev_node
             prev_node.next = next_node
 
-            self.length -= 1
-
+        self.length -= 1
         node.prev = None
         node.next = None
 
@@ -78,7 +77,7 @@ class DoublyLinkedList:
         if self.current_iter_node is not None:
             return_node = self.current_iter_node
             self.current_iter_node = self.current_iter_node.next
-            return return_node
+            return return_node.value
         raise StopIteration
 
     def __repr__(self) -> str:
