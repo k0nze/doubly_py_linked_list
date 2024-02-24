@@ -22,7 +22,7 @@ class DoublyLinkedList:
         self.tail: Optional[DoublyLinkedListNode] = None
         self.length: int = 0
 
-    def add_node_in_front_of_head(self, value: Any) -> DoublyLinkedListNode:
+    def insert_head(self, value: Any) -> DoublyLinkedListNode:
         new_node = DoublyLinkedListNode(value)
         if self.head is None:
             self.head = new_node
@@ -34,7 +34,7 @@ class DoublyLinkedList:
         self.length += 1
         return new_node
 
-    def add_node_behind_tail(self, value) -> DoublyLinkedListNode:
+    def insert_tail(self, value) -> DoublyLinkedListNode:
         new_node = DoublyLinkedListNode(value)
         if self.tail is None:
             self.head = new_node
@@ -46,7 +46,7 @@ class DoublyLinkedList:
         self.length += 1
         return new_node
 
-    def remove_node(self, node: DoublyLinkedListNode) -> None:
+    def remove(self, node: DoublyLinkedListNode) -> None:
         if node is self.head and node is self.tail:
             self.head = None
             self.tail = None

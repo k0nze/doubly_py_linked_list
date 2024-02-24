@@ -4,22 +4,22 @@ from doubly_py_linked_list import DoublyLinkedList as dll
 
 
 class TestDoublyLinkedList(unittest.TestCase):
-    def test_add_in_front_of_head(self):
+    def test_insert_head(self):
         d = dll()
 
         self.assertEqual(len(d), 0)
 
-        d.add_node_in_front_of_head(1)
+        d.insert_head(1)
         self.assertEqual(len(d), 1)
         self.assertEqual(d.head.value, 1)
         self.assertEqual(d.tail.value, 1)
 
-        d.add_node_in_front_of_head(2)
+        d.insert_head(2)
         self.assertEqual(len(d), 2)
         self.assertEqual(d.head.value, 2)
         self.assertEqual(d.tail.value, 1)
 
-        d.add_node_in_front_of_head(3)
+        d.insert_head(3)
         self.assertEqual(len(d), 3)
         self.assertEqual(d.head.value, 3)
         self.assertEqual(d.tail.value, 1)
@@ -28,17 +28,17 @@ class TestDoublyLinkedList(unittest.TestCase):
         d = dll()
         self.assertEqual(len(d), 0)
 
-        d.add_node_behind_tail(1)
+        d.insert_tail(1)
         self.assertEqual(len(d), 1)
         self.assertEqual(d.head.value, 1)
         self.assertEqual(d.tail.value, 1)
 
-        d.add_node_behind_tail(2)
+        d.insert_tail(2)
         self.assertEqual(len(d), 2)
         self.assertEqual(d.head.value, 1)
         self.assertEqual(d.tail.value, 2)
 
-        d.add_node_behind_tail(3)
+        d.insert_tail(3)
         self.assertEqual(len(d), 3)
         self.assertEqual(d.head.value, 1)
         self.assertEqual(d.tail.value, 3)
@@ -47,32 +47,32 @@ class TestDoublyLinkedList(unittest.TestCase):
         d = dll()
         self.assertEqual(len(d), 0)
 
-        node_1 = d.add_node_behind_tail(1)
-        node_2 = d.add_node_behind_tail(2)
-        node_3 = d.add_node_behind_tail(3)
-        d.add_node_behind_tail(4)
-        d.add_node_behind_tail(5)
-        node_6 = d.add_node_behind_tail(6)
-        node_7 = d.add_node_behind_tail(7)
+        node_1 = d.insert_tail(1)
+        node_2 = d.insert_tail(2)
+        node_3 = d.insert_tail(3)
+        d.insert_tail(4)
+        d.insert_tail(5)
+        node_6 = d.insert_tail(6)
+        node_7 = d.insert_tail(7)
         self.assertEqual(len(d), 7)
 
         l = list(d)
         self.assertListEqual(l, [1, 2, 3, 4, 5, 6, 7])
 
-        d.remove_node(node_3)
+        d.remove(node_3)
         self.assertEqual(len(d), 6)
 
         l = list(d)
         self.assertListEqual(l, [1, 2, 4, 5, 6, 7])
 
-        d.remove_node(node_1)
+        d.remove(node_1)
         self.assertEqual(len(d), 5)
         self.assertEqual(d.head, node_2)
 
         l = list(d)
         self.assertListEqual(l, [2, 4, 5, 6, 7])
 
-        d.remove_node(node_7)
+        d.remove(node_7)
         self.assertEqual(len(d), 4)
         self.assertEqual(d.tail, node_6)
 
