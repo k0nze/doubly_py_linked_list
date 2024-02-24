@@ -1,26 +1,28 @@
+from typing import Any, Optional
+
 __version__ = "1.0.0"
 
 
 class DoublyLinkedListNode:
-    def __init__(self, value):
+    def __init__(self, value: Any):
         self.value = value
-        self.next = None
-        self.prev = None
+        self.next: Optional[DoublyLinkedListNode] = None
+        self.prev: Optional[DoublyLinkedListNode] = None
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return str(self.value)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.__repr__()
 
 
 class DoublyLinkedList:
     def __init__(self):
-        self.head = None
-        self.tail = None
-        self.length = 0
+        self.head: Optional[DoublyLinkedListNode] = None
+        self.tail: Optional[DoublyLinkedListNode] = None
+        self.length: int = 0
 
-    def add_node_in_front_of_head(self, value):
+    def add_node_in_front_of_head(self, value: Any) -> DoublyLinkedListNode:
         new_node = DoublyLinkedListNode(value)
         if self.head is None:
             self.head = new_node
@@ -32,7 +34,7 @@ class DoublyLinkedList:
         self.length += 1
         return new_node
 
-    def add_node_behind_tail(self, value):
+    def add_node_behind_tail(self, value) -> DoublyLinkedListNode:
         new_node = DoublyLinkedListNode(value)
         if self.tail is None:
             self.head = new_node
@@ -44,7 +46,7 @@ class DoublyLinkedList:
         self.length += 1
         return new_node
 
-    def remove_node(self, node):
+    def remove_node(self, node: DoublyLinkedListNode) -> None:
         if node is self.head and node is self.tail:
             self.head = None
             self.tail = None
@@ -65,21 +67,21 @@ class DoublyLinkedList:
         node.prev = None
         node.next = None
 
-    def __len__(self):
+    def __len__(self) -> int:
         return self.length
 
-    def __iter__(self):
+    def __iter__(self) -> "DoublyLinkedList":
         self.current_iter_node = self.head
         return self
 
-    def __next__(self):
+    def __next__(self) -> DoublyLinkedListNode:
         if self.current_iter_node is not None:
             return_node = self.current_iter_node
             self.current_iter_node = self.current_iter_node.next
             return return_node
         raise StopIteration
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         node_values = []
 
         if self.head is None:
