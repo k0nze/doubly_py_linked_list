@@ -23,6 +23,8 @@ for v in dll:
 
 d.move_to_head(node_3)
 
+l = list(d)
+
 d.remove(node_1)
 d.remove(node_2)
 d.remove(node_3)
