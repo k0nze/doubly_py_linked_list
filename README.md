@@ -1,4 +1,4 @@
-# Doubly (Py) Linked List
+# Doubly (Py) Linked List 1️⃣↔️2️⃣↔️3️⃣
 
 A module that implements doubly linked lists in python
 
