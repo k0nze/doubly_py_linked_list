@@ -35,5 +35,5 @@ tag = true
 push = true
 
 [tool.bumpver.file_patterns]
-"pyproject.toml" = ['version = "{version}"', 'current_version = "{version}"']
+"pyproject.toml" = ['version = "{version}"',]
 "src/doubly_py_linked_list/__init__.py" = ['__version__ = "{version}"']
