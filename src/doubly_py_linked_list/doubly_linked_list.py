@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import List, Any, Optional
 
 __version__ = "1.0.0"
 
@@ -17,10 +17,14 @@ class DoublyLinkedListNode:
 
 
 class DoublyLinkedList:
-    def __init__(self):
+    def __init__(self, values: List[Any] = None):
         self.head: Optional[DoublyLinkedListNode] = None
         self.tail: Optional[DoublyLinkedListNode] = None
         self.length: int = 0
+
+        if values is not None:
+            for value in values:
+                self.insert_tail(value)
 
     def insert_head(self, value: Any) -> DoublyLinkedListNode:
         new_node = DoublyLinkedListNode(value)
@@ -65,6 +69,23 @@ class DoublyLinkedList:
         self.length -= 1
         node.prev = None
         node.next = None
+
+    def move_to_head(self, node: DoublyLinkedListNode) -> None:
+        if node is self.head:
+            return
+        else:
+            self.remove(node)
+            node.next = self.head
+            self.head.prev = node
+            self.head = node
+
+    def nodes(self) -> List[DoublyLinkedListNode]:
+        nodes = []
+        current_node = self.head
+        while current_node is not None:
+            nodes.append(current_node)
+            current_node = current_node.next
+        return nodes
 
     def __len__(self) -> int:
         return self.length
