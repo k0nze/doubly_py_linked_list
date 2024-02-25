@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "doubly_py_linked_list"
-version = "1.0.2"
+version = "1.0.3"
 description = "Doubly linked list implementation in Python"
 readme = "README.md"
 authors = [{ name = "Konstantin (k0nze) Lübeck", email = "admin@konze.org" }]
@@ -27,7 +27,7 @@ dev = ["pre-commit", "bumpver"]
 Homepage = "https://github.com/k0nze/doubly_py_linked_list"
 
 [tool.bumpver]
-current_version = "1.0.2"
+current_version = "1.0.3"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
