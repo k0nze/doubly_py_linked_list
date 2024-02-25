@@ -220,6 +220,4 @@ class DoublyLinkedList:
             current_node = current_node.next
             node_values.append(str(current_node))
 
-        print(node_values)
-
         return " <-> ".join(node_values)
