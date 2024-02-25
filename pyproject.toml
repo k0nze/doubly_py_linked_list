@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "doubly_py_linked_list"
-version = "0.1.1"
+version = "1.0.0"
 description = "Doubly linked list implementation in Python"
 readme = "README.md"
 authors = [{ name = "Konstantin (k0nze) Lübeck", email = "admin@konze.org" }]
