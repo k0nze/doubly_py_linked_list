@@ -162,6 +162,23 @@ class DoublyLinkedList:
             self.head.prev = node
             self.head = node
 
+    def move_to_tail(self, node: DoublyLinkedListNode) -> None:
+        """
+        Move a node to the tail of the doubly linked list
+
+        Parameters
+        ----------
+        node: DoublyLinkedListNode
+            The node to move to the tail of the doubly linked list
+        """
+        if node is self.tail:
+            return
+        else:
+            self.remove(node)
+            node.prev = self.tail
+            self.tail.next = node
+            self.tail = node
+
     def nodes(self) -> List[DoublyLinkedListNode]:
         """
         Return a list of the nodes in the doubly linked list

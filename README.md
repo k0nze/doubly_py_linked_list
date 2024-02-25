@@ -22,6 +22,7 @@ for v in dll:
     print(v)
 
 d.move_to_head(node_3)
+d.move_to_tail(node_1)
 
 l = list(d)
 

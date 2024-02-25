@@ -86,7 +86,7 @@ class TestDoublyLinkedList(unittest.TestCase):
         d.insert_tail(2)
         node_3 = d.insert_tail(3)
         d.insert_tail(4)
-        d.insert_tail(5)
+        node_5 = d.insert_tail(5)
         node_6 = d.insert_tail(6)
 
         self.assertEqual(len(d), 6)
@@ -101,6 +101,8 @@ class TestDoublyLinkedList(unittest.TestCase):
         d.move_to_head(node_6)
         self.assertEqual(d.head.value, 6)
         self.assertEqual(d.head, node_6)
+        self.assertEqual(d.tail.value, 5)
+        self.assertEqual(d.tail, node_5)
 
         l = list(d)
         self.assertListEqual(l, [6, 3, 1, 2, 4, 5])
@@ -111,6 +113,41 @@ class TestDoublyLinkedList(unittest.TestCase):
 
         l = list(d)
         self.assertListEqual(l, [6, 3, 1, 2, 4, 5])
+
+    def test_move_to_tail(self):
+        d = dll()
+
+        node_1 = d.insert_tail(1)
+        node_2 = d.insert_tail(2)
+        node_3 = d.insert_tail(3)
+        d.insert_tail(4)
+        d.insert_tail(5)
+        d.insert_tail(6)
+
+        self.assertEqual(len(d), 6)
+
+        d.move_to_tail(node_3)
+        self.assertEqual(d.tail.value, 3)
+        self.assertEqual(d.tail, node_3)
+
+        l = list(d)
+        self.assertListEqual(l, [1, 2, 4, 5, 6, 3])
+
+        d.move_to_tail(node_1)
+        self.assertEqual(d.tail.value, 1)
+        self.assertEqual(d.tail, node_1)
+        self.assertEqual(d.head.value, 2)
+        self.assertEqual(d.head, node_2)
+
+        l = list(d)
+        self.assertListEqual(l, [2, 4, 5, 6, 3, 1])
+
+        d.move_to_tail(node_1)
+        self.assertEqual(d.tail.value, 1)
+        self.assertEqual(d.tail, node_1)
+
+        l = list(d)
+        self.assertListEqual(l, [2, 4, 5, 6, 3, 1])
 
     def test_init_with_values(self):
         d = dll([1, 2, 3, 4, 5, 6, 7])
