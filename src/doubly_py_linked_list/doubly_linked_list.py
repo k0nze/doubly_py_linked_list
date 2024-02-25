@@ -7,8 +7,8 @@ class DoublyLinkedListNode:
     """
     A node in a doubly linked list
 
-    Attributes:
-    -----------
+    Attributes
+    ----------
     value: Any
         The value of the node
 
@@ -38,8 +38,8 @@ class DoublyLinkedList:
     """
     A doubly linked list
 
-    Attributes:
-    -----------
+    Attributes
+    ----------
     head: Optional[DoublyLinkedListNode]
         The head of the doubly linked list
 
@@ -54,8 +54,8 @@ class DoublyLinkedList:
         """
         Create a new doubly linked list
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         values: List[Any]
             A list of values to initialize the doubly linked list with
         """
@@ -71,8 +71,8 @@ class DoublyLinkedList:
         """
         Insert a value at the head of the doubly linked list
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         value: Any
             The value to insert
 
@@ -96,13 +96,13 @@ class DoublyLinkedList:
         """
         Insert a value at the tail of the doubly linked list
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         value: Any
             The value to insert
 
-        Returns:
-        --------
+        Returns
+        -------
         DoublyLinkedListNode
             The node that was inserted at the tail of the doubly linked list
         """
@@ -121,8 +121,8 @@ class DoublyLinkedList:
         """
         Remove a node from the doubly linked list
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         node: DoublyLinkedListNode
             The node to remove
         """
@@ -149,8 +149,8 @@ class DoublyLinkedList:
         """
         Move a node to the head of the doubly linked list
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         node: DoublyLinkedListNode
             The node to move to the head of the doubly linked list
         """
@@ -166,8 +166,8 @@ class DoublyLinkedList:
         """
         Return a list of the nodes in the doubly linked list
 
-        Returns:
-        --------
+        Returns
+        -------
         List[DoublyLinkedListNode]
             A list of the nodes in the doubly linked list
         """
