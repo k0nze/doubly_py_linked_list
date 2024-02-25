@@ -5,7 +5,7 @@ A module that implements doubly linked lists in python
 ## Example
 
 ```
-python -m pip install doubly_py_linked_list
+python -m pip install doubly-py-linked-list
 ```
 
 ```python

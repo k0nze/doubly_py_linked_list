@@ -1,7 +1,5 @@
 from typing import List, Any, Optional
 
-__version__ = "1.0.0"
-
 
 class DoublyLinkedListNode:
     """
