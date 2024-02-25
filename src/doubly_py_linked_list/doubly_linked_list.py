@@ -4,7 +4,25 @@ __version__ = "1.0.0"
 
 
 class DoublyLinkedListNode:
+    """
+    A node in a doubly linked list
+
+    Attributes:
+    -----------
+    value: Any
+        The value of the node
+
+    next: Optional[DoublyLinkedListNode]
+        The next node in the doubly linked list
+
+    prev: Optional[DoublyLinkedListNode]
+        The previous node in the doubly linked list
+    """
+
     def __init__(self, value: Any):
+        """
+        Create a new node in a doubly linked list
+        """
         self.value = value
         self.next: Optional[DoublyLinkedListNode] = None
         self.prev: Optional[DoublyLinkedListNode] = None
@@ -17,7 +35,30 @@ class DoublyLinkedListNode:
 
 
 class DoublyLinkedList:
-    def __init__(self, values: List[Any] = None):
+    """
+    A doubly linked list
+
+    Attributes:
+    -----------
+    head: Optional[DoublyLinkedListNode]
+        The head of the doubly linked list
+
+    tail: Optional[DoublyLinkedListNode]
+        The tail of the doubly linked list
+
+    length: int
+        The number of nodes in the doubly linked list
+    """
+
+    def __init__(self, values: Optional[List[Any]] = None):
+        """
+        Create a new doubly linked list
+
+        Parameters:
+        -----------
+        values: List[Any]
+            A list of values to initialize the doubly linked list with
+        """
         self.head: Optional[DoublyLinkedListNode] = None
         self.tail: Optional[DoublyLinkedListNode] = None
         self.length: int = 0
@@ -27,6 +68,19 @@ class DoublyLinkedList:
                 self.insert_tail(value)
 
     def insert_head(self, value: Any) -> DoublyLinkedListNode:
+        """
+        Insert a value at the head of the doubly linked list
+
+        Parameters:
+        -----------
+        value: Any
+            The value to insert
+
+        Returns:
+        --------
+        DoublyLinkedListNode
+            The node that was inserted at the head of the doubly linked list
+        """
         new_node = DoublyLinkedListNode(value)
         if self.head is None:
             self.head = new_node
@@ -39,6 +93,19 @@ class DoublyLinkedList:
         return new_node
 
     def insert_tail(self, value) -> DoublyLinkedListNode:
+        """
+        Insert a value at the tail of the doubly linked list
+
+        Parameters:
+        -----------
+        value: Any
+            The value to insert
+
+        Returns:
+        --------
+        DoublyLinkedListNode
+            The node that was inserted at the tail of the doubly linked list
+        """
         new_node = DoublyLinkedListNode(value)
         if self.tail is None:
             self.head = new_node
@@ -51,6 +118,14 @@ class DoublyLinkedList:
         return new_node
 
     def remove(self, node: DoublyLinkedListNode) -> None:
+        """
+        Remove a node from the doubly linked list
+
+        Parameters:
+        -----------
+        node: DoublyLinkedListNode
+            The node to remove
+        """
         if node is self.head and node is self.tail:
             self.head = None
             self.tail = None
@@ -71,6 +146,14 @@ class DoublyLinkedList:
         node.next = None
 
     def move_to_head(self, node: DoublyLinkedListNode) -> None:
+        """
+        Move a node to the head of the doubly linked list
+
+        Parameters:
+        -----------
+        node: DoublyLinkedListNode
+            The node to move to the head of the doubly linked list
+        """
         if node is self.head:
             return
         else:
@@ -80,6 +163,14 @@ class DoublyLinkedList:
             self.head = node
 
     def nodes(self) -> List[DoublyLinkedListNode]:
+        """
+        Return a list of the nodes in the doubly linked list
+
+        Returns:
+        --------
+        List[DoublyLinkedListNode]
+            A list of the nodes in the doubly linked list
+        """
         nodes = []
         current_node = self.head
         while current_node is not None:
