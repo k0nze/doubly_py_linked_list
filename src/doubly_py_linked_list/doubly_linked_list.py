@@ -26,7 +26,7 @@ class DoublyLinkedListNode:
         self.prev: Optional[DoublyLinkedListNode] = None
 
     def __repr__(self) -> str:
-        return str(self.value)
+        return f"ddl_node({self.value})"
 
     def __str__(self) -> str:
         return self.__repr__()
@@ -115,6 +115,33 @@ class DoublyLinkedList:
         self.length += 1
         return new_node
 
+    def get_head(self) -> Any:
+        """
+        Get the value of the head of the doubly linked list
+
+        Returns
+        -------
+        Any
+            The value of the head of the doubly linked list
+        """
+        if self.head is None:
+            return None
+        else:
+            return self.head.value
+
+    def get_tail(self) -> Any:
+        """
+        Get the value of the tail of the doubly linked list
+        Returns
+        -------
+        Any
+            The value of the tail of the doubly linked list
+        """
+        if self.tail is None:
+            return None
+        else:
+            return self.tail.value
+
     def remove(self, node: DoublyLinkedListNode) -> None:
         """
         Remove a node from the doubly linked list
@@ -142,6 +169,37 @@ class DoublyLinkedList:
         self.length -= 1
         node.prev = None
         node.next = None
+
+    def pop_head(self) -> Any:
+        """
+        Remove the head of the doubly linked list and return its value
+
+        Returns
+        -------
+        Any
+            The value of the head of the doubly linked list
+        """
+        if self.head is None:
+            return None
+        else:
+            return_value = self.head.value
+            self.remove(self.head)
+            return return_value
+
+    def pop_tail(self) -> Any:
+        """
+        Remove the tail of the doubly linked list and return its value
+        Returns
+        -------
+        Any
+            The value of the tail of the doubly linked list
+        """
+        if self.tail is None:
+            return None
+        else:
+            return_value = self.tail.value
+            self.remove(self.tail)
+            return return_value
 
     def move_to_head(self, node: DoublyLinkedListNode) -> None:
         """

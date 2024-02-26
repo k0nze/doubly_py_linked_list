@@ -166,3 +166,75 @@ class TestDoublyLinkedList(unittest.TestCase):
 
         nodes = d.nodes()
         self.assertListEqual(nodes, [node_1, node_2, node_3, node_4])
+
+    def test_pop_head(self):
+        d = dll([1, 2, 3, 4, 5, 6, 7])
+        self.assertEqual(len(d), 7)
+
+        self.assertEqual(d.pop_head(), 1)
+        self.assertEqual(d.get_head(), 2)
+        self.assertEqual(len(d), 6)
+
+        self.assertEqual(d.pop_head(), 2)
+        self.assertEqual(d.get_head(), 3)
+        self.assertEqual(len(d), 5)
+
+        self.assertEqual(d.pop_head(), 3)
+        self.assertEqual(d.get_head(), 4)
+        self.assertEqual(len(d), 4)
+
+        self.assertEqual(d.pop_head(), 4)
+        self.assertEqual(d.get_head(), 5)
+        self.assertEqual(len(d), 3)
+
+        self.assertEqual(d.pop_head(), 5)
+        self.assertEqual(d.get_head(), 6)
+        self.assertEqual(len(d), 2)
+
+        self.assertEqual(d.pop_head(), 6)
+        self.assertEqual(d.get_head(), 7)
+        self.assertEqual(len(d), 1)
+
+        self.assertEqual(d.pop_head(), 7)
+        self.assertEqual(d.get_head(), None)
+        self.assertEqual(len(d), 0)
+
+        self.assertEqual(d.head, None)
+        self.assertEqual(d.tail, None)
+        self.assertEqual(d.pop_head(), None)
+
+    def test_pop_tail(self):
+        d = dll([1, 2, 3, 4, 5, 6, 7])
+        self.assertEqual(len(d), 7)
+
+        self.assertEqual(d.pop_tail(), 7)
+        self.assertEqual(d.get_tail(), 6)
+        self.assertEqual(len(d), 6)
+
+        self.assertEqual(d.pop_tail(), 6)
+        self.assertEqual(d.get_tail(), 5)
+        self.assertEqual(len(d), 5)
+
+        self.assertEqual(d.pop_tail(), 5)
+        self.assertEqual(d.get_tail(), 4)
+        self.assertEqual(len(d), 4)
+
+        self.assertEqual(d.pop_tail(), 4)
+        self.assertEqual(d.get_tail(), 3)
+        self.assertEqual(len(d), 3)
+
+        self.assertEqual(d.pop_tail(), 3)
+        self.assertEqual(d.get_tail(), 2)
+        self.assertEqual(len(d), 2)
+
+        self.assertEqual(d.pop_tail(), 2)
+        self.assertEqual(d.get_tail(), 1)
+        self.assertEqual(len(d), 1)
+
+        self.assertEqual(d.pop_tail(), 1)
+        self.assertEqual(d.get_tail(), None)
+        self.assertEqual(len(d), 0)
+
+        self.assertEqual(d.head, None)
+        self.assertEqual(d.tail, None)
+        self.assertEqual(d.pop_tail(), None)

@@ -9,25 +9,33 @@ python -m pip install doubly-py-linked-list
 ```
 
 ```python
-from doubly_py_linked_list import doubly_py_linked_list as dll
-
-d = dll()
-
-node_1 = d.insert_tail(1)
-node_2 = d.insert_head(2)
-node_3 = d.insert_tail(3)
-node_4 = d.insert_tail(3)
-
-for v in dll:
-    print(v)
-
-d.move_to_head(node_3)
-d.move_to_tail(node_1)
-
-l = list(d)
-
-d.remove(node_1)
-d.remove(node_2)
-d.remove(node_3)
-d.remove(node_4)
+>>> from doubly_py_linked_list import DoublyLinkedList as dll
+>>> d = dll([1, 2, 3, 4])
+>>> d
+1 <-> 2 <-> 3 <-> 4
+>>> node_0 = d.insert_head(0)
+>>> node_5 = d.insert_tail(5)
+>>> for v in d:
+...     print(v)
+...
+0
+1
+2
+3
+4
+5
+>>> d.move_to_head(node_5)
+>>> d.move_to_tail(node_0)
+>>> list(d)
+[5, 1, 2, 3, 4, 0]
+>>> d.pop_head()
+5
+>>> list(d)
+[1, 2, 3, 4, 5, 0]
+>>> d.pop_tail()
+0
+>>> list(d)
+[1, 2, 3, 4]
+>>> d.nodes(d)
+[ddl_node(1), ddl_node(2), ddl_node(3), ddl_node(4)]
 ```
