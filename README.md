@@ -1,5 +1,8 @@
 # Doubly (Py) Linked List 1️⃣ ↔️ 2️⃣ ↔️ 3️⃣
 
+[![CI](https://github.com/k0nze/mesi_cachesim/actions/workflows/ci.yml/badge.svg)](https://github.com/k0nze/doubly_py_linked_list/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 A module that implements doubly linked lists in python
 
 ## Example
